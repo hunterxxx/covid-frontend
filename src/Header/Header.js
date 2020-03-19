@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap'
+import { Link } from "react-router-dom";
 
 export default function Header() {
     return (
@@ -8,9 +9,9 @@ export default function Header() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="/chart">Chart</Nav.Link>
-                    <Nav.Link href="/contact">Contact</Nav.Link>
+                    <Link className="nav-link" to="/">Home</Link>
+                    <Link className="nav-link" to="/chart">Chart</Link>
+                    <Link className="nav-link" to="/contact">Contact</Link>
                 </Nav>
                 <Form inline>
                     <FormControl type="text" placeholder="Search" className="mr-sm-2" />
