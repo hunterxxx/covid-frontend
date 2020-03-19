@@ -19,13 +19,13 @@ function TableData() {
             <Form inline className="mb-1">
                 <p>Daily update of reported cases across cities in Germany</p>
                 <FormControl style={{ marginLeft: "auto" }} type="text" placeholder="Search City" className="mr-sm-2" />
-                <Button variant="outline-success">Search</Button>
+                <Button className="btn btn-success">Search</Button>
             </Form>
             <Table striped bordered hover responsive="sm">
-                <thead className="thead-light">
+                <thead className="thead-dark">
                     <tr>
-                        <th>City</th>
-                        <th>Total no. of cases reported</th>
+                        <th className="text-danger">City</th>
+                        <th className="text-danger">Total no. of cases reported</th>
                     </tr>
                 </thead>
                 <tbody>
