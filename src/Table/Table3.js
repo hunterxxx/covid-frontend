@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Form, FormControl, Button } from 'react-bootstrap'
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
@@ -42,14 +41,8 @@ function TableData() {
                     ? result
                     : "Loading"
                 }</b></h4>
-            <Form inline className="mb-1">
-                <p>Daily update of reported cases across cities in Germany</p>
-                <FormControl style={{ marginLeft: "auto" }} type="text" placeholder="Search City" className="mr-sm-2" />
-                <Button className="btn btn-danger">Search</Button>
-            </Form>
             <ToolkitProvider
-                bootstrap4
-                keyField='id'
+                keyField="id"
                 data={chartData}
                 columns={columns}
                 search
@@ -57,11 +50,18 @@ function TableData() {
                 {
                     props => (
                         <div>
-                            <SearchBar {...props.searchProps} />
+                            <div class="d-flex justify-content-between">
+                                <p>Daily update of reported cases across cities in Germany</p>
+                                <SearchBar
+                                    {...props.searchProps} />
+                            </div>
                             <hr />
                             <BootstrapTable
+                                bootstrap4
+                                keyField='id'
                                 headerClasses="text-danger bg-dark"
-                                {...props.baseProps}
+                                data={chartData}
+                                columns={columns}
                             />
                         </div>
                     )

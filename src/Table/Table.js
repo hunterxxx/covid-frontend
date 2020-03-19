@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Form, FormControl, Button } from 'react-bootstrap'
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-
+import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
 
 function TableData() {
     const [chartData, setChartData] = useState([]);
@@ -20,6 +19,8 @@ function TableData() {
     chartData.map(data => {
         return result += data.value;
     })
+
+    const { SearchBar } = Search;
 
     const columns = [
         {
@@ -40,19 +41,31 @@ function TableData() {
                     ? result
                     : "Loading"
                 }</b></h4>
-            <Form inline className="mb-1">
-                <p>Daily update of reported cases across cities in Germany</p>
-                <FormControl style={{ marginLeft: "auto" }} type="text" placeholder="Search City" className="mr-sm-2" />
-                <Button className="btn btn-danger">Search</Button>
-            </Form>
-            {/* bg-dark */}
-            <BootstrapTable
+            <ToolkitProvider
                 bootstrap4
                 keyField='id'
-                headerClasses="text-danger"
                 data={chartData}
                 columns={columns}
-            />
+                search
+            >
+                {
+                    props => (
+                        <div>
+                            <div className="d-flex justify-content-between">
+                                <p>Daily update of reported cases across cities in Germany</p>
+                                <SearchBar
+                                    placeholder="Search City or Number"
+                                    {...props.searchProps} />
+                            </div>
+                            <BootstrapTable
+                                headerClasses="text-danger bg-dark"
+                                {...props.baseProps}
+                            />
+                        </div>
+                    )
+                }
+            </ToolkitProvider>
+
             <h6>Data sources: Robert-Koch-Institut, Health Offices of the Federal States, own research</h6>
         </div>
     );
