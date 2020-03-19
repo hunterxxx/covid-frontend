@@ -2,18 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Table } from 'react-bootstrap'
 
 function TableData() {
-    const [data, setData] = useState([]);
+    const [chartData, setChartData] = useState([]);
 
     async function fetchData() {
         const res = await fetch("https://backend-sql.herokuapp.com/covids");
-        res
-            .json()
-            .then(res => setData(res))
+        res.json().then(res => setChartData(res))
     }
 
     useEffect(() => {
         fetchData();
-    });
+    }, []);
 
     return (
         <div className="container">
@@ -27,10 +25,10 @@ function TableData() {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map(book => (
-                        <tr key={book.id}>
-                            <td>{book.city} </td>
-                            <td>{book.number} </td>
+                    {chartData.map(data => (
+                        <tr key={data.id}>
+                            <td>{data.label} </td>
+                            <td>{data.value} </td>
                         </tr>
                     ))}
 

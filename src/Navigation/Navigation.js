@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import TableData from "../Table/Table";
-import Chart from "../Chart/Chart";
+import Chart from "../Chart/ChartData";
 import Contact from "../Contact/Contact";
 
 
