@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Table, Form, FormControl, Button } from 'react-bootstrap'
+import { Form, FormControl, Button } from 'react-bootstrap'
 import BootstrapTable from 'react-bootstrap-table-next';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+
 
 function TableData() {
     const [chartData, setChartData] = useState([]);
@@ -19,13 +21,16 @@ function TableData() {
         return result += data.value;
     })
 
-    const columns = [{
-        dataField: 'label',
-        text: 'City'
-    }, {
-        dataField: 'value',
-        text: 'Number of cases reported'
-    }];
+    const columns = [
+        {
+            dataField: 'label',
+            text: 'City',
+            sort: true
+        }, {
+            dataField: 'value',
+            text: 'Number of cases reported',
+            sort: true
+        }];
 
     return (
         <div className="container mt-2">
@@ -40,7 +45,14 @@ function TableData() {
                 <FormControl style={{ marginLeft: "auto" }} type="text" placeholder="Search City" className="mr-sm-2" />
                 <Button className="btn btn-danger">Search</Button>
             </Form>
-            <BootstrapTable headerClasses="text-danger bg-dark" keyField='id' data={chartData} columns={columns} />
+            {/* bg-dark */}
+            <BootstrapTable
+                bootstrap4
+                keyField='id'
+                headerClasses="text-danger"
+                data={chartData}
+                columns={columns}
+            />
             <h6>Data sources: Robert-Koch-Institut, Health Offices of the Federal States, own research</h6>
         </div>
     );
