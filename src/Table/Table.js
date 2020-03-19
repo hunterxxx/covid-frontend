@@ -54,7 +54,8 @@ function TableData() {
                             <div className="d-flex justify-content-between">
                                 <p>Daily update of reported cases across cities in Germany</p>
                                 <SearchBar
-                                    placeholder="Search City or Number"
+                                    style={{ marginRight: "10em" }}
+                                    placeholder="Search by City or Number"
                                     {...props.searchProps} />
                             </div>
                             <BootstrapTable
