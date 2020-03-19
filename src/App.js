@@ -5,10 +5,12 @@ import './App.css';
 
 function App() {
   return (
-    <div>
+    <div className="Site">
       <Header />
-      <Navigation />
-      <nav className="navbar fixed-bottom navbar-light bg-light">
+      <main className="Site-content">
+        <Navigation />
+      </main>
+      <nav className="navbar absolute navbar-light bg-light">
         <p id="middle"> © Hunter 2020</p>
       </nav>
     </div>
