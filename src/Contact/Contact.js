@@ -6,8 +6,8 @@ export default function Contact() {
         <div className="container mt-2">
             <h5><span role="img" aria-label="phone">📞</span> Contact me: </h5>
             <ul>
-                <li>If you have better sources of Covid-19 Data <span role="img" aria-label="articles">📑</span></li>
-                <li>Business Inquiries <span role="img" aria-label="business">💼</span></li>
+                <li>If you have better sources of Covid-19 data <span role="img" aria-label="articles">📑</span></li>
+                <li>Business inquiries <span role="img" aria-label="business">💼</span></li>
                 <li>Sponsorship <span role="img" aria-label="sponsor">💰</span></li>
                 <li>Bored and need a chat <span role="img" aria-label="chat">😋</span></li>
             </ul>
@@ -30,7 +30,7 @@ export default function Contact() {
                     <Form.Label>Message: </Form.Label>
                     <Form.Control name="message" as="textarea" rows="3" placeholder="你好.
 Как тебя зовут?
-Mit freundlichen Grüßen.
+Mit freundlichen Grüßen
 " />
                 </Form.Group>
                 <Button variant="primary" value="Send" type="submit">
