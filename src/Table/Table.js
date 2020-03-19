@@ -3,23 +3,15 @@ import { Table } from 'react-bootstrap'
 
 function TableData() {
     const [chartData, setChartData] = useState([]);
-    const [loading, setLoading] = useState(false);
 
     async function fetchData() {
-        setLoading(true);
         const res = await fetch("https://backend-sql.herokuapp.com/covids");
         res.json().then(res => setChartData(res))
-        setLoading(false)
-
     }
 
     useEffect(() => {
         fetchData();
     }, []);
-
-    // if (loading) {
-    //     return <h2>Loading...</h2>;
-    // }
 
     return (
         <div className="container">
