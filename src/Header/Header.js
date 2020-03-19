@@ -1,22 +1,28 @@
 import React from 'react';
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap'
-import { Link } from "react-router-dom";
+import { Navbar, Nav } from 'react-bootstrap'
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
     return (
-        <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="/">Hunter</Navbar.Brand>
+        <Navbar bg="dark" variant="dark">
+            <Navbar.Brand className="mb-0 h1" href="/">Hunter</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Link className="nav-link" to="/">Home</Link>
-                    <Link className="nav-link" to="/chart">Chart</Link>
-                    <Link className="nav-link" to="/contact">Contact</Link>
+                    <NavLink
+                        className="nav-link"
+                        exact
+                        activeClassName="active"
+                        to="/"
+                    >Home
+                    </NavLink>
+                    <NavLink className="nav-link"
+                        activeClassName="active"
+                        to="/chart">Chart</NavLink>
+                    <NavLink className="nav-link"
+                        activeClassName="active"
+                        to="/contact">Contact</NavLink>
                 </Nav>
-                <Form inline>
-                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                    <Button variant="outline-success">Search</Button>
-                </Form>
             </Navbar.Collapse>
         </Navbar>
     );

@@ -34,7 +34,7 @@ export default function Chart({ data, loading }) {
     };
 
     return (
-        <div>
+        <div className="container">
             <ReactFC {...chartConfigs} />
         </div>);
 }
