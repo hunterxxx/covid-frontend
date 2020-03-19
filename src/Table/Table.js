@@ -56,7 +56,7 @@ function TableData() {
                                 <p>Daily update of reported cases across cities in Germany</p>
                                 <SearchBar
                                     style={{ marginRight: "10em" }}
-                                    placeholder="Search by City or Number"
+                                    placeholder="Search City or Number"
                                     {...props.searchProps} />
                             </div>
                             <BootstrapTable
