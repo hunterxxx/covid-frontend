@@ -46,6 +46,7 @@ function TableData() {
                 keyField='id'
                 data={chartData}
                 columns={columns}
+
                 search
             >
                 {
@@ -60,6 +61,9 @@ function TableData() {
                             </div>
                             <BootstrapTable
                                 headerClasses="text-danger bg-dark"
+                                striped
+                                hover
+                                condensed
                                 {...props.baseProps}
                             />
                         </div>
