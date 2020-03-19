@@ -17,18 +17,21 @@ export default function Contact() {
             >
                 <Form.Group>
                     <Form.Label>Your Name: </Form.Label>
-                    <Form.Control type="text" name="name" placeholder="Small text" />
+                    <Form.Control type="text" name="name" placeholder="Tengo la camisa negra" />
                 </Form.Group>
                 <Form.Group controlId="exampleForm.ControlInput1">
                     <Form.Label>Your Email:</Form.Label>
-                    <Form.Control type="email" name="_replyto" placeholder="name@example.com" />
+                    <Form.Control type="email" name="_replyto" placeholder="hunter@hunterIsGod.com" />
                     <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                     </Form.Text>
                 </Form.Group>
                 <Form.Group controlId="exampleForm.ControlTextarea1">
                     <Form.Label>Message: </Form.Label>
-                    <Form.Control name="message" as="textarea" rows="3" />
+                    <Form.Control name="message" as="textarea" rows="3" placeholder="你好.
+Как тебя зовут?
+Mit freundlichen Grüßen.
+" />
                 </Form.Group>
                 <Button variant="primary" value="Send" type="submit">
                     Submit
