@@ -18,8 +18,8 @@ export default function Chart({ data, loading }) {
     console.log(data)
     const chartConfigs = {
         type: "column2d", // The chart type
-        width: "700", // Width of the chart
-        height: "400", // Height of the chart
+        width: "90%", // Width of the chart
+        height: "90%", // Height of the chart
         dataFormat: "json", // Data type
         dataSource: {
             chart: {
