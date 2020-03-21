@@ -7,7 +7,9 @@ import { useLanguage } from '../hooks';
 function TableData() {
     const [chartData, setChartData] = useState([]);
     const [loading, setLoading] = useState(true);
+    //const [city, setCity] = useState("");
     const [t, formatDate] = useLanguage();
+
 
     async function fetchData() {
         setLoading(true);
@@ -16,8 +18,18 @@ function TableData() {
         setLoading(false)
     }
 
+    async function fetchParameter() {
+        let search = window.location.search;
+        let params = new URLSearchParams(search);
+        //var city = params.get('city') || params.get('stadt');
+        //var city = " "
+        //setCity(params.get("city"));
+        //console.log(city)
+    }
+
     useEffect(() => {
         fetchData();
+        fetchParameter();
     }, []);
 
     const result = chartData.reduce((acc, x) => acc + x.value, 0);
@@ -53,7 +65,7 @@ function TableData() {
                 })}
                 <b className="text-danger" style={{ fontStyle: 'normal' }}>
                     {(loading || result === 0)
-                        ? "...loading"
+                        ? "Loading" //ut a spinner
                         : result
                     }</b></h4>
             <ToolkitProvider
@@ -61,7 +73,9 @@ function TableData() {
                 keyField='id'
                 data={chartData}
                 columns={columns}
-                search
+                search={{
+                    defaultSearch: (new URLSearchParams(window.location.search)).get("city")
+                }}
             >
                 {
                     props => (
