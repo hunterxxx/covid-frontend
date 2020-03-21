@@ -3,13 +3,14 @@ import { Route, Switch } from 'react-router-dom';
 import TableData from "../Table/Table";
 import Chart from "../Chart/ChartData";
 import Contact from "../Contact/Contact";
-
+import Shop from "../Shop/Shop";
 
 export default function Navigation() {
     return (
         <Switch>
             <Route exact path="/" component={TableData} />
             <Route exact path="/chart" component={Chart} />
+            <Route exact path="/shop" component={Shop} />
             <Route exact path="/contact" component={Contact} />
             <Route render={() => <h1 className="container mt-2">404 Not found!</h1>} />
         </Switch>

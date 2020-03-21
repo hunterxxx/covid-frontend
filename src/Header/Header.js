@@ -21,6 +21,9 @@ export default function Header() {
                         to="/chart">Chart</NavLink>
                     <NavLink className="nav-link"
                         activeClassName="active"
+                        to="/shop">Shop</NavLink>
+                    <NavLink className="nav-link"
+                        activeClassName="active"
                         to="/contact">Contact</NavLink>
                 </Nav>
             </Navbar.Collapse>

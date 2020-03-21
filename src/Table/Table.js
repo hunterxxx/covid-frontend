@@ -53,7 +53,7 @@ function TableData() {
                     props => (
                         <div>
                             <div className="d-flex justify-content-between">
-                                <p>Daily update of reported cases across cities in Germany <br class="mobile-break" />(Stand: 20.03.2020)</p>
+                                <p>Daily update of reported cases across cities in Germany <br class="mobile-break" />(Stand: 21.03.2020)</p>
                                 <SearchBar
                                     style={{ marginRight: "10em" }}
                                     placeholder="Search City or Number"
