@@ -4,8 +4,6 @@ import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
 import { useLanguage } from '../hooks';
 
-const REFRESH_INTERVALL = 30000;
-
 function TableData() {
     const [chartData, setChartData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -15,14 +13,11 @@ function TableData() {
         setLoading(true);
         const res = await fetch("https://backend-sql.herokuapp.com/covids");
         res.json().then(res => setChartData(res))
-        setLoading(false);
+        setLoading(false)
     }
 
-    useEffect(fetchData, []);
-
     useEffect(() => {
-        const timeout = window.setInterval(fetchData, REFRESH_INTERVALL);
-        return () => window.clearInterval(timeout);
+        fetchData();
     }, []);
 
     const result = chartData.reduce((acc, x) => acc + x.value, 0);
@@ -78,7 +73,7 @@ function TableData() {
                                         de: 'Tägliches Update bestätigter Fälle in deutschen Städten',
                                         en: 'Daily update of reported cases across cities in Germany'
                                     })}
-                                    <br class="mobile-break" />
+                                    <br className="mobile-break" />
                                     {`(Stand ${formatDate(new Date())})`}
                                 </p>
                                 <SearchBar
