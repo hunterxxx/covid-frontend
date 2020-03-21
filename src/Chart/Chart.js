@@ -15,7 +15,6 @@ export default function Chart({ data, loading }) {
 
     let chartData = data.slice(0, 10)
 
-    console.log(data)
     const chartConfigs = {
         type: "column2d", // The chart type
         width: "90%", // Width of the chart
