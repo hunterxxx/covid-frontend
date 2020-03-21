@@ -1,0 +1,8 @@
+.react-bootstrap-table .bg-dark {
+    color: #fff !important;
+}
+
+.react-bootstrap-table td,
+.react-bootstrap-table th {
+    padding: 10px 15px;
+}
