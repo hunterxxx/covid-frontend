@@ -7,9 +7,7 @@ import { useLanguage } from '../hooks';
 function TableData() {
     const [chartData, setChartData] = useState([]);
     const [loading, setLoading] = useState(true);
-    //const [city, setCity] = useState("");
     const [t, formatDate] = useLanguage();
-
 
     async function fetchData() {
         setLoading(true);
@@ -55,7 +53,7 @@ function TableData() {
                 })}
                 <b className="text-danger" style={{ fontStyle: 'normal' }}>
                     {(loading || result === 0)
-                        ? "Loading" //ut a spinner
+                        ? "Loading" //put a spinner
                         : result
                     }</b></h4>
             <ToolkitProvider
@@ -64,7 +62,7 @@ function TableData() {
                 data={chartData}
                 columns={columns}
                 search={{
-                    defaultSearch: (new URLSearchParams(window.location.search)).get("city")
+                    defaultSearch: (new URLSearchParams(window.location.search)).get("city") || (new URLSearchParams(window.location.search)).get("stadt")
                 }}
             >
                 {
@@ -72,7 +70,6 @@ function TableData() {
                         <div>
                             <div className="d-flex justify-content-between">
                                 <p>
-
                                     {t({
                                         de: 'Tägliches Update bestätigter Fälle in deutschen Städten',
                                         en: 'Daily update of reported cases across cities in Germany'
