@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 export const useLanguage = () => {
-    const userLang = navigator.language || navigator.userLanguage;
-    const languageKey = userLang.match('de') ? 'de' : 'en';
+        const userLang = navigator.language || navigator.userLanguage;
+        const languageKey = userLang.match('de') ? 'de' : 'en';
 
     return [
         (texts => (texts[languageKey] || '---')),

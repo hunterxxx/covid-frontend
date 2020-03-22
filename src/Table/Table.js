@@ -30,11 +30,8 @@ console.log(bookmarks);
         setLoading(false);
     }
 
-    useEffect(fetchData, []);
-
     useEffect(() => {
-        const timeout = window.setInterval(fetchData, REFRESH_INTERVALL);
-        return () => window.clearInterval(timeout);
+        fetchData();
     }, []);
 
     const result = data.reduce((acc, x) => acc + x.value, 0);
@@ -105,12 +102,15 @@ console.log(bookmarks);
                     : result
                 }</b>
             </h4>
+
             <ToolkitProvider
                 bootstrap4
                 keyField='id'
                 data={chartData}
                 columns={columns}
-                search
+                search={{
+                    defaultSearch: (new URLSearchParams(window.location.search)).get("city") || (new URLSearchParams(window.location.search)).get("stadt")
+                }}
             >
                 {
                     props => (
@@ -120,8 +120,8 @@ console.log(bookmarks);
                                     de: 'Tägliches Update bestätigter Fälle in deutschen Städten',
                                     en: 'Daily update of reported cases across cities in Germany'
                                 })}
-                                    <br class="mobile-break" />
-                                    {`(Stand ${formatDate(new Date())})`}
+                                <br className="mobile-break" />
+                                {`(Stand ${formatDate(new Date())})`}
                             </p>
 
                             {
@@ -143,12 +143,12 @@ console.log(bookmarks);
                                         >
                                             {(props) => (
                                                 <BootstrapTable
-                                                headerClasses="text-danger bg-dark"
-                                                striped
-                                                hover
-                                                condensed
-                                                {...props.baseProps}
-                                            />
+                                                    headerClasses="text-danger bg-dark"
+                                                    striped
+                                                    hover
+                                                    condensed
+                                                    {...props.baseProps}
+                                                />
                                             )}
                                         </ToolkitProvider>
                                     </React.Fragment>
@@ -174,8 +174,11 @@ console.log(bookmarks);
                 }
             </ToolkitProvider>
 
-            <h6>Data sources: Robert-Koch-Institut, Health Offices of the Federal States, own research</h6>
+            <h6>
+                Data sources: Robert-Koch-Institut, Health Offices of the Federal States, own research
+            </h6>
         </div>
     );
 };
+
 export default TableData;
