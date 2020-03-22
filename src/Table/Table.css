@@ -6,3 +6,31 @@
 .react-bootstrap-table th {
     padding: 10px 15px;
 }
+
+.react-bootstrap-table th:last-child {
+    width: 50px;
+    padding: 0;
+}
+
+.react-bootstrap-table button {
+    background-color: transparent;
+    border: 0;
+    display: inline-block;
+    text-align: center;
+}
+
+.react-bootstrap-table button:hover svg {
+    color: #111;
+}
+
+.react-bootstrap-table button svg {
+    color: #ddd
+}
+.react-bootstrap-table button.is-active {
+    background-color: transparent;
+    border: 0;
+
+}
+.react-bootstrap-table button.is-active svg {
+    color: rgb(245, 206, 35)
+}

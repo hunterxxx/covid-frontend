@@ -2,20 +2,31 @@ import React, { useState, useEffect } from "react";
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
-import { useLanguage } from '../hooks';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBookmark } from '@fortawesome/free-solid-svg-icons'
+import { useLanguage, useLocalStorage } from '../hooks';
 import './Table.css';
 
 const REFRESH_INTERVALL = 30000;
 
 function TableData() {
-    const [chartData, setChartData] = useState([]);
+    const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [t, formatDate] = useLanguage();
+    const [bookmarks, setBookmarks] = useLocalStorage('bookmarks');
+
+    const toggleBookmark = (id) => {
+        const nextBookmarks = bookmarks.find(x => x === id)
+            ? bookmarks.filter(x => x !== id)
+            : bookmarks.concat(id)
+        setBookmarks(nextBookmarks);
+    }
+console.log(bookmarks);
 
     async function fetchData() {
         setLoading(true);
         const res = await fetch("https://backend-sql.herokuapp.com/covids");
-        res.json().then(res => setChartData(res))
+        res.json().then(res => setData(res))
         setLoading(false);
     }
 
@@ -26,7 +37,34 @@ function TableData() {
         return () => window.clearInterval(timeout);
     }, []);
 
-    const result = chartData.reduce((acc, x) => acc + x.value, 0);
+    const result = data.reduce((acc, x) => acc + x.value, 0);
+    const bookmarkedCities = data.filter(x => bookmarks.find(y => y === x.id)).map(x => ({
+        ...x,
+        bookmark: (
+            <button
+                onClick={() => toggleBookmark(x.id)}
+                className="is-active"
+            >
+                <FontAwesomeIcon icon={faBookmark} />
+            </button>
+        )
+    }));
+
+    const chartData = data.map(x => ({
+        ...x,
+        bookmark: (
+            <button
+                onClick={() => toggleBookmark(x.id)}
+                className={
+                    bookmarks.find(y => y === x.id)
+                        ? 'is-active'
+                        : ''
+                }
+            >
+                <FontAwesomeIcon icon={faBookmark} />
+            </button>
+        )
+    }));
 
     const { SearchBar } = Search;
 
@@ -45,6 +83,9 @@ function TableData() {
                 en: 'Number of cases reported'
             }),
             sort: true
+        }, {
+            dataField: 'bookmark',
+            text: '',
         }];
 
     return (
@@ -52,6 +93,7 @@ function TableData() {
             <h1 className="my-4">
                 Coronavirus Live Tracker <small>(COVID-19)</small>
             </h1>
+
             <h4>
                 {t({
                     de: 'Anzahl bestätigter Fälle in Deutschland: ',
@@ -61,7 +103,8 @@ function TableData() {
                 {(loading || result === 0)
                     ? "...loading"
                     : result
-                }</b></h4>
+                }</b>
+            </h4>
             <ToolkitProvider
                 bootstrap4
                 keyField='id'
@@ -80,6 +123,37 @@ function TableData() {
                                     <br class="mobile-break" />
                                     {`(Stand ${formatDate(new Date())})`}
                             </p>
+
+                            {
+                                (bookmarkedCities.length > 0)
+                                && (
+                                    <React.Fragment>
+                                        <h6>
+                                        {t({
+                                            de: 'In deinem Fokus:',
+                                            en: 'Your focus:'
+                                        })}
+                                        </h6>
+                                        <ToolkitProvider
+                                            bootstrap4
+                                            keyField='id'
+                                            data={bookmarkedCities}
+                                            columns={columns}
+                                            search
+                                        >
+                                            {(props) => (
+                                                <BootstrapTable
+                                                headerClasses="text-danger bg-dark"
+                                                striped
+                                                hover
+                                                condensed
+                                                {...props.baseProps}
+                                            />
+                                            )}
+                                        </ToolkitProvider>
+                                    </React.Fragment>
+                                )
+                            }
                             <SearchBar
                                 style={{ marginRight: "10em" }}
                                 placeholder={t({
