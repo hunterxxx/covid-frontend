@@ -7,8 +7,6 @@ import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 import { useLanguage, useLocalStorage } from '../hooks';
 import './Table.css';
 
-const REFRESH_INTERVALL = 30000;
-
 function TableData() {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -21,7 +19,7 @@ function TableData() {
             : bookmarks.concat(id)
         setBookmarks(nextBookmarks);
     }
-console.log(bookmarks);
+    console.log(bookmarks);
 
     async function fetchData() {
         setLoading(true);
@@ -96,11 +94,11 @@ console.log(bookmarks);
                     de: 'Anzahl bestätigter Fälle in Deutschland: ',
                     en: 'Number of cases reported in Germany: '
                 })}
-                 <b className="text-danger" style={{ fontStyle: 'normal' }}>
-                {(loading || result === 0)
-                    ? "...loading"
-                    : result
-                }</b>
+                <b className="text-danger" style={{ fontStyle: 'normal' }}>
+                    {(loading || result === 0)
+                        ? "...loading"
+                        : result
+                    }</b>
             </h4>
 
             <ToolkitProvider
@@ -129,10 +127,10 @@ console.log(bookmarks);
                                 && (
                                     <React.Fragment>
                                         <h6>
-                                        {t({
-                                            de: 'In deinem Fokus:',
-                                            en: 'Your focus:'
-                                        })}
+                                            {t({
+                                                de: 'In deinem Fokus:',
+                                                en: 'Your focus:'
+                                            })}
                                         </h6>
                                         <ToolkitProvider
                                             bootstrap4
