@@ -96,7 +96,7 @@ function TableData() {
                 })}
                 <b className="text-danger" style={{ fontStyle: 'normal' }}>
                     {(loading || result === 0)
-                        ? "...loading"
+                        ? "Loading" //With spinner
                         : result
                     }</b>
             </h4>
