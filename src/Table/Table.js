@@ -3,7 +3,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBookmark } from '@fortawesome/free-solid-svg-icons'
+import { faBookmark, faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { useLanguage, useLocalStorage } from '../hooks';
 import './Table.css';
 
@@ -62,7 +62,6 @@ function TableData() {
     }));
 
     const { SearchBar } = Search;
-
     const columns = [
         {
             dataField: 'label',
@@ -96,7 +95,7 @@ function TableData() {
                 })}
                 <b className="text-danger" style={{ fontStyle: 'normal' }}>
                     {(loading || result === 0)
-                        ? "Loading" //With spinner
+                        ? <FontAwesomeIcon icon={faSpinner} spin />
                         : result
                     }</b>
             </h4>
