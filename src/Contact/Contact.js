@@ -4,18 +4,12 @@ import { Form, Button } from 'react-bootstrap'
 export default function Contact() {
     return (
         <div className="container mt-2">
-            <h3>Project was contributed by: </h3>
-            <ul>
-                <li><a href="https://github.com/christianheyn">Heyn Christian</a></li>
-            </ul>
-            <p>Thank you so much!</p>
-            <hr />
             <h5><span role="img" aria-label="phone">📞</span> Contact me: </h5>
             <ul>
                 <li>If you have better sources of Covid-19 data <span role="img" aria-label="articles">📑</span></li>
                 <li>Business inquiries <span role="img" aria-label="business">💼</span></li>
                 <li>Sponsorship <span role="img" aria-label="sponsor">💰</span></li>
-                <li>Bored and need a chat <span role="img" aria-label="chat">😋❤️</span></li>
+                <li>Bored and need a chat <span role="img" aria-label="chat">😋</span></li>
             </ul>
             <Form
                 action="https://formspree.io/xlelwdaj"

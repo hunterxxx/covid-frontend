@@ -21,7 +21,7 @@ export default function Header() {
                         to="/chart">Chart</NavLink>
                     <NavLink className="nav-link"
                         activeClassName="active"
-                        to="/shop">Shop</NavLink>
+                        to="/updates">Updates</NavLink>
                     <NavLink className="nav-link"
                         activeClassName="active"
                         to="/contact">Contact</NavLink>

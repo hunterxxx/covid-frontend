@@ -119,6 +119,8 @@ function TableData() {
                                     en: 'Daily update of reported cases across cities in Germany'
                                 })}
                                 <br className="mobile-break" />
+                                Update: Now you can bookmark <FontAwesomeIcon icon={faBookmark} /> and come back to view the result!
+                                <br className="mobile-break" />
                                 {`(Stand ${formatDate(new Date())})`}
                             </p>
 
