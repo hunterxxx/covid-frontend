@@ -19,7 +19,6 @@ function TableData() {
             : bookmarks.concat(id)
         setBookmarks(nextBookmarks);
     }
-    console.log(bookmarks);
 
     async function fetchData() {
         setLoading(true);
@@ -31,6 +30,9 @@ function TableData() {
     useEffect(() => {
         fetchData();
     }, []);
+
+    //replace ID
+    data.forEach((item, i) => item.id = i + 1);
 
     const result = data.reduce((acc, x) => acc + x.value, 0);
     const bookmarkedCities = data.filter(x => bookmarks.find(y => y === x.id)).map(x => ({
@@ -64,6 +66,13 @@ function TableData() {
     const { SearchBar } = Search;
     const columns = [
         {
+            dataField: 'id',
+            text: t({
+                de: 'ID',
+                en: 'ID'
+            }),
+            sort: true
+        }, {
             dataField: 'label',
             text: t({
                 de: 'Stadt',
@@ -114,11 +123,15 @@ function TableData() {
                         <div>
                             <p>
                                 {t({
-                                    de: 'Tägliches Update bestätigter Fälle in deutschen Städten',
-                                    en: 'Daily update of reported cases across cities in Germany'
+                                    de: 'Tägliches Update bestätigter Fälle in deutschen Städten ',
+                                    en: 'Daily update of reported cases across cities in Germany '
                                 })}
                                 <br className="mobile-break" />
-                                Update: Now you can bookmark <FontAwesomeIcon icon={faBookmark} color="#f5cf22" /> and come back to view the result!
+                                {t({
+                                    de: 'Speichern und zurückkommen, um das Ergebnis mit Lesezeichen anzuzeigen ',
+                                    en: 'Save and come back to view the result with Bookmark '
+                                })}
+                                <FontAwesomeIcon icon={faBookmark} color="#f5cf22" />
                                 <br className="mobile-break" />
                                 {`(Stand ${formatDate(new Date())})`}
                             </p>

@@ -7,6 +7,10 @@
     padding: 10px 15px;
 }
 
+.react-bootstrap-table th:first-child {
+    width: 90px;
+}
+
 .react-bootstrap-table th:last-child {
     width: 50px;
     padding: 0;
