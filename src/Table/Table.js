@@ -128,8 +128,8 @@ function TableData() {
                                 })}
                                 <br className="mobile-break" />
                                 {t({
-                                    de: 'Speichern und zurückkommen, um das Ergebnis mit Lesezeichen anzuzeigen ',
-                                    en: 'Save and come back to view the result with Bookmark '
+                                    de: 'Speichern Sie das Ergebnis mit Lesezeichen ',
+                                    en: 'Save the result with Bookmark '
                                 })}
                                 <FontAwesomeIcon icon={faBookmark} color="#f5cf22" />
                                 <br className="mobile-break" />
