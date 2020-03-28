@@ -4,6 +4,11 @@
   "description": "Covid-19 German Cities Live Tracker",
   "icons": [
     {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
       "src": "/images/german.png",
       "type": "image/png",
       "sizes": "192x192"
@@ -14,8 +19,10 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "./index.html",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "theme_color": "#000000",
+  "splash_pages": null,
   "background_color": "#ffffff"
 }
