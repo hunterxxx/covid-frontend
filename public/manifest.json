@@ -1,7 +1,20 @@
 {
   "short_name": "Hunter",
   "name": "Coronavirus Live Tracker",
-  "start_url": ".",
+  "description": "Covid-19 German Cities Live Tracker",
+  "icons": [
+    {
+      "src": "/images/german.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/german.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"

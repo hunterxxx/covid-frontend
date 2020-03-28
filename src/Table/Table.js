@@ -32,7 +32,7 @@ function TableData() {
     }, []);
 
     //replace ID
-    data.forEach((item, i) => item.id = i + 1);
+    // data.forEach((item, i) => item.id = i + 1);
 
     const result = data.reduce((acc, x) => acc + x.value, 0);
     const bookmarkedCities = data.filter(x => bookmarks.find(y => y === x.id)).map(x => ({
@@ -66,13 +66,6 @@ function TableData() {
     const { SearchBar } = Search;
     const columns = [
         {
-            dataField: 'id',
-            text: t({
-                de: 'ID',
-                en: 'ID'
-            }),
-            sort: true
-        }, {
             dataField: 'label',
             text: t({
                 de: 'Stadt',
@@ -158,7 +151,6 @@ function TableData() {
                                                     headerClasses="text-danger bg-dark"
                                                     striped
                                                     hover
-                                                    condensed
                                                     {...props.baseProps}
                                                 />
                                             )}
@@ -178,7 +170,6 @@ function TableData() {
                                 headerClasses="text-danger bg-dark"
                                 striped
                                 hover
-                                condensed
                                 {...props.baseProps}
                             />
                         </div>
