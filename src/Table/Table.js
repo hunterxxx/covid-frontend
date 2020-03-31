@@ -80,8 +80,7 @@ function TableData() {
             }),
             sort: true
         }, {
-            dataField: 'bookmark',
-            text: '',
+            dataField: 'bookmark'
         }];
 
     return (
