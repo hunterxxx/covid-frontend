@@ -25,7 +25,7 @@ function TableData() {
         const res = await fetch("https://backend-sql.herokuapp.com/covids");
         res.json().then(res => {
             setData(res)
-            localStorage.setItem('data', res);
+            localStorage.setItem('data', JSON.stringify(res));
         })
         setLoading(false);
         console.log(localStorage.getItem('data'))
@@ -33,7 +33,7 @@ function TableData() {
 
     useEffect(() => {
         if (!navigator.onLine) {
-            setData(localStorage.getItem('data'))
+            setData(JSON.parse(localStorage.getItem('data')))
         } else {
             fetchData();
         }
