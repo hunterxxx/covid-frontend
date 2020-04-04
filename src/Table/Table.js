@@ -45,7 +45,7 @@ function TableData() {
     //replace ID
     // data.forEach((item, i) => item.id = i + 1);
 
-    const result = data.reduce((acc, x) => acc + x.value, 0);
+    const result = 89000
     const bookmarkedCities = data.filter(x => bookmarks.find(y => y === x.id)).map(x => ({
         ...x,
         bookmark: (
