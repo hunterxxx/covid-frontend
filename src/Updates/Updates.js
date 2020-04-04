@@ -19,6 +19,15 @@ export default function Template() {
                 <li>Added Bookmark</li>
                 <li>Added Parameter result: https://www.hunterisgod.com/?city=berlin</li>
             </ul>
+            <h3>Roadmaps</h3>
+            <ul>
+                <li>AI Q&A</li>
+                <li>Push Notifications</li>
+                <li>Internationalization i18n (DE/EN)</li>
+                <li>News (DE news Auto translate to EN)</li>
+                <li>Chat / Comments</li>
+                <li>Progressive Web App (PWA) cached on local storage</li>
+            </ul>
         </div>
     );
 }

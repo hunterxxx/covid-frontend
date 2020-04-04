@@ -23,13 +23,20 @@ function TableData() {
     async function fetchData() {
         setLoading(true);
         const res = await fetch("https://backend-sql.herokuapp.com/covids");
-        res.json().then(res => setData(res))
+        res.json().then(res => {
+            setData(res)
+            localStorage.setItem('data', res);
+        })
         setLoading(false);
     }
 
     useEffect(() => {
+        if (!navigator.onLine) {
+            setData(localStorage.getItem('data'))
+        }
         fetchData();
     }, []);
+
 
     //replace ID
     // data.forEach((item, i) => item.id = i + 1);
