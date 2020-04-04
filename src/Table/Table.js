@@ -25,7 +25,7 @@ function TableData() {
         const res = await fetch("https://backend-sql.herokuapp.com/covids");
         res.json().then(res => {
             setData(res)
-            localStorage.setItem('data', JSON.stringify(res));
+            localStorage.setItem('data', res);
         })
         setLoading(false);
         console.log(localStorage.getItem('data'))
@@ -38,14 +38,11 @@ function TableData() {
             fetchData();
         }
     }, []);
-    console.log(localStorage.getItem('data'))
-    console.log(data)
-
 
     //replace ID
     // data.forEach((item, i) => item.id = i + 1);
 
-    const result = 89000
+    const result = data.reduce((acc, x) => acc + x.value, 0);
     const bookmarkedCities = data.filter(x => bookmarks.find(y => y === x.id)).map(x => ({
         ...x,
         bookmark: (
