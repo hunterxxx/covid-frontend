@@ -28,12 +28,13 @@ function TableData() {
             localStorage.setItem('data', JSON.stringify(res));
         })
         setLoading(false);
-        console.log(localStorage.getItem('data'))
     }
 
     useEffect(() => {
         if (!navigator.onLine) {
+            setLoading(true);
             setData(JSON.parse(localStorage.getItem('data')))
+            setLoading(false);
         } else {
             fetchData();
         }

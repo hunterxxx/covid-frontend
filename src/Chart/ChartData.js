@@ -9,12 +9,21 @@ export default function ChartData() {
     async function fetchData() {
         setLoading(true);
         const res = await fetch("https://backend-sql.herokuapp.com/covids");
-        res.json().then(res => setChartData(res))
-        setLoading(false)
+        res.json().then(res => {
+            setChartData(res)
+            localStorage.setItem('data', JSON.stringify(res));
+        })
+        setLoading(false);
     }
 
     useEffect(() => {
-        fetchData();
+        if (!navigator.onLine) {
+            setLoading(true);
+            setChartData(JSON.parse(localStorage.getItem('data')))
+            setLoading(false);
+        } else {
+            fetchData();
+        }
     }, []);
 
     return (<Chart data={chartData} loading={loading} />);
