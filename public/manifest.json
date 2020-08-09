@@ -2,6 +2,7 @@
   "short_name": "Hunter",
   "name": "Coronavirus Live Tracker",
   "description": "Covid-19 German Cities Live Tracker",
+  "display": "fullscreen",
   "icons": [
     {
       "src": "favicon.ico",
@@ -21,7 +22,6 @@
   ],
   "start_url": "/",
   "scope": "/",
-  "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
