@@ -1,0 +1,14 @@
+[
+      {
+            "relation": [
+                  "delegate_permission/common.handle_all_urls"
+            ],
+            "target": {
+                  "namespace": "android_app",
+                  "package_name": "com.hunterisgod.www.twa",
+                  "sha256_cert_fingerprints": [
+                        "4A:D7:17:E5:FD:CE:37:55:EC:42:AC:13:79:CF:8D:69:61:D4:CC:E9:21:A8:56:08:AE:B4:66:D1:EF:39:65:4F"
+                  ]
+            }
+      }
+]
