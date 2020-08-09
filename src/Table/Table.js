@@ -118,6 +118,7 @@ function TableData() {
 
             <ToolkitProvider
                 bootstrap4
+                // eslint-disable-next-line 
                 keyField={'attributes.GEN' + 'attributes.BEZ'}
                 data={chartData}
                 columns={columns}
@@ -155,6 +156,7 @@ function TableData() {
                                         </h6>
                                         <ToolkitProvider
                                             bootstrap4
+                                            // eslint-disable-next-line 
                                             keyField={'attributes.GEN' + 'attributes.BEZ'}
                                             data={bookmarkedCities}
                                             columns={columns}

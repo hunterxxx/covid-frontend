@@ -1,14 +1,5 @@
-[
-      {
-            "relation": [
-                  "delegate_permission/common.handle_all_urls"
-            ],
-            "target": {
-                  "namespace": "android_app",
-                  "package_name": "com.hunterisgod.www.twa",
-                  "sha256_cert_fingerprints": [
-                        "4A:D7:17:E5:FD:CE:37:55:EC:42:AC:13:79:CF:8D:69:61:D4:CC:E9:21:A8:56:08:AE:B4:66:D1:EF:39:65:4F"
-                  ]
-            }
-      }
-]
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target" : { "namespace": "android_app", "package_name": "com.hunterisgod.www.twa",
+                   "sha256_cert_fingerprints": ["75:9A:2D:8F:29:38:3A:45:A4:FC:6D:C9:6F:E7:A1:27:F4:F1:50:C9:29:1B:82:A0:39:2A:C3:07:1D:CC:B3:C4"] }
+    }]
