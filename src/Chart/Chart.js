@@ -10,10 +10,22 @@ export default function Chart({ data, loading }) {
     if (loading) {
         return <h2>Loading...</h2>;
     }
-    data.forEach(obj => delete obj.id)
-    data.sort((x, y) => y.value - x.value)
+    // console.log(data)
+
+    // var dataScience = data.map(function (item) {
+    //     return {
+    //         city: item.attributes.GEN,
+    //         count: item.attributes.cases
+    //     };
+    // });
+
+    // console.log(dataScience)
+
+    data.forEach(obj => delete obj.attributes.GEN)
+    data.sort((x, y) => y.attributes.cases - x.attributes.cases)
 
     let chartData = data.slice(0, 10)
+
 
     const chartConfigs = {
         type: "column2d", // The chart type

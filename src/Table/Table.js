@@ -22,10 +22,10 @@ function TableData() {
 
     async function fetchData() {
         setLoading(true);
-        const res = await fetch("https://backend-sql.herokuapp.com/covids");
+        const res = await fetch("https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0/query?where=1%3D1&outFields=GEN,BEZ,cases&returnGeometry=false&outSR=4326&f=json");
         res.json().then(res => {
-            setData(res)
-            localStorage.setItem('data', JSON.stringify(res));
+            setData(res.features)
+            localStorage.setItem('data', JSON.stringify(res.features));
         })
         setLoading(false);
     }
@@ -46,12 +46,12 @@ function TableData() {
     /**
      * Bookmark, id=city,value=count
      */
-    const result = data.reduce((acc, x) => acc + x.value, 0);
-    const bookmarkedCities = data.filter(x => bookmarks.find(y => y === x.id)).map(x => ({
+    const result = data.reduce((acc, x) => acc + x.attributes.cases, 0);
+    const bookmarkedCities = data.filter(x => bookmarks.find(y => y === x.attributes.GEN)).map(x => ({
         ...x,
         bookmark: (
             <button
-                onClick={() => toggleBookmark(x.id)}
+                onClick={() => toggleBookmark(x.attributes.GEN)}
                 className="is-active"
             >
                 <FontAwesomeIcon icon={faBookmark} />
@@ -63,9 +63,9 @@ function TableData() {
         ...x,
         bookmark: (
             <button
-                onClick={() => toggleBookmark(x.id)}
+                onClick={() => toggleBookmark(x.attributes.GEN)}
                 className={
-                    bookmarks.find(y => y === x.id)
+                    bookmarks.find(y => y === x.attributes.GEN)
                         ? 'is-active'
                         : ''
                 }
@@ -75,17 +75,32 @@ function TableData() {
         )
     }));
 
+    //'attributes.BEZ'
+
+    function nameFormatter(cell, row) {
+        return 124
+    }
+
     const { SearchBar } = Search;
     const columns = [
         {
-            dataField: 'label',
+            dataField: 'attributes.GEN',
+            formatter: (value, row) => {
+                return value + " " + row.attributes.BEZ
+            },
+
+            //{'attributes.GEN' + 'attributes.BEZ'}
+            // dataField: (value, attributes) => {
+            //     return 'attributes.GEN:' + 'attributes.BEZ'
+            // },
+            //dataField: nameFormatter,
             text: t({
                 de: 'Stadt',
                 en: 'City'
             }),
             sort: true
         }, {
-            dataField: 'value',
+            dataField: 'attributes.cases',
             text: t({
                 de: 'Anzahl bestätigter Fälle',
                 en: 'Number of cases reported'
@@ -115,7 +130,7 @@ function TableData() {
 
             <ToolkitProvider
                 bootstrap4
-                keyField='id'
+                keyField={'attributes.GEN' + 'attributes.BEZ'}
                 data={chartData}
                 columns={columns}
                 search={{
@@ -152,7 +167,7 @@ function TableData() {
                                         </h6>
                                         <ToolkitProvider
                                             bootstrap4
-                                            keyField='id'
+                                            keyField={'attributes.GEN' + 'attributes.BEZ'}
                                             data={bookmarkedCities}
                                             columns={columns}
                                             search

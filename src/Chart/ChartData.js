@@ -8,10 +8,10 @@ export default function ChartData() {
 
     async function fetchData() {
         setLoading(true);
-        const res = await fetch("https://backend-sql.herokuapp.com/covids");
+        const res = await fetch("https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0/query?where=1%3D1&outFields=GEN,cases&returnGeometry=false&returnDistinctValues=true&outSR=4326&f=json");
         res.json().then(res => {
-            setChartData(res)
-            localStorage.setItem('data', JSON.stringify(res));
+            setChartData(res.features)
+            localStorage.setItem('data', JSON.stringify(res.features));
         })
         setLoading(false);
     }
