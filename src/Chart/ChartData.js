@@ -8,7 +8,7 @@ export default function ChartData() {
 
     async function fetchData() {
         setLoading(true);
-        const res = await fetch("https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0/query?where=1%3D1&outFields=GEN,cases&returnGeometry=false&returnDistinctValues=true&outSR=4326&f=json");
+        const res = await fetch("https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0/query?where=1%3D1&outFields=GEN,BEZ,cases&returnGeometry=false&outSR=4326&f=json");
         res.json().then(res => {
             let result = res.features
             let data = _.map(result, "attributes")
