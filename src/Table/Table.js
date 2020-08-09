@@ -75,12 +75,6 @@ function TableData() {
         )
     }));
 
-    //'attributes.BEZ'
-
-    function nameFormatter(cell, row) {
-        return 124
-    }
-
     const { SearchBar } = Search;
     const columns = [
         {
@@ -88,12 +82,6 @@ function TableData() {
             formatter: (value, row) => {
                 return value + " " + row.attributes.BEZ
             },
-
-            //{'attributes.GEN' + 'attributes.BEZ'}
-            // dataField: (value, attributes) => {
-            //     return 'attributes.GEN:' + 'attributes.BEZ'
-            // },
-            //dataField: nameFormatter,
             text: t({
                 de: 'Stadt',
                 en: 'City'

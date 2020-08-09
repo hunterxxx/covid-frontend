@@ -21,11 +21,11 @@ export default function Chart({ data, loading }) {
 
     // console.log(dataScience)
 
-    data.forEach(obj => delete obj.attributes.GEN)
-    data.sort((x, y) => y.attributes.cases - x.attributes.cases)
+    //data.forEach(obj => delete obj.GEN)
+    data.sort((x, y) => y.value - x.value)
 
     let chartData = data.slice(0, 10)
-
+    console.table(chartData)
 
     const chartConfigs = {
         type: "column2d", // The chart type
