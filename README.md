@@ -9,9 +9,10 @@ https://www.hunterisgod.com/updates
 
 ## Roadmaps
 
-1. AI Q&A
+1. <b>Changes since yesterday</b>
 2. Push Notifications
 3. Internationalization i18n (DE/EN)
 4. News (DE news Auto translate to EN)
 5. Chat / Comments
 6. Progressive Web App (PWA) cached on local storage
+7. AI Q&A
