@@ -25,6 +25,9 @@ export default function Header() {
                     <NavLink className="nav-link"
                         activeClassName="active"
                         to="/contact">Contact</NavLink>
+                    <NavLink className="nav-link"
+                        activeClassName="active"
+                        to="/privacy">Privacy</NavLink>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
