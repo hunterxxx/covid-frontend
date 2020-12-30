@@ -149,7 +149,7 @@ export default function Template() {
                 <li>Prevent or investigate possible wrongdoing in connection with the Service</li>
                 <li>Protect the personal safety of Users of the Service or the public</li>
                 <li>Protect against legal liability</li>
-            </ul>
+            </ul>ñ
             <h2>Security of Your Personal Data</h2>
             <p>The security of Your Personal Data is important to Us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While We strive to use commercially acceptable means to protect Your Personal Data, We cannot guarantee its absolute security.</p>
             <h1>Links to Other Websites</h1>
