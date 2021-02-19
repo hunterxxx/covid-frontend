@@ -1,7 +1,6 @@
 import React from "react";
 import Navigation from './Navigation/Navigation'
 import Header from './Header/Header'
-//import { Helmet } from 'react-helmet';
 import './App.css';
 
 function App() {
