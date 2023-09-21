@@ -1,3 +1,5 @@
+<a href="https://a.check24.net/misc/click.php?pid=345001&aid=337&deep=c24bank&cat=14" target="_blank"><img src="https://a.check24.net/misc/view.php?pid=345001&aid=337&cat=14" width="468" height="60" style="max-width: 100%; height: auto;" ></a>
+
 Coronavirus Live Tracker tracked down to the city level of Germany.
 As it's an open source project , feel free to submit pull requests for feature updates or bug fixes!
 
